@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesso Feito | Aplicações em Forros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #0a0a0a;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Custom Cursor */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #0a0a0a;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Custom Cursor - VERSÃO MELHORADA */
+        .cursor {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #0a0a0a;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .cursor.hover {
+            width: 80px;
+            height: 80px;
+            background: #0a0a0a;
+            border-color: #0a0a0a;
+            mix-blend-mode: normal;
+        }
+
+        .cursor.scrolling {
+            background: rgba(10, 10, 10, 0.9);
+            border-color: #0a0a0a;
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #0a0a0a;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, background 0.3s ease;
+        }
+
+        .cursor-dot.hover {
+            background: #ffffff;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        /* Grain Effect */
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Smooth Scroll Container */
+        .smooth-scroll {
+            will-change: transform;
+        }
+
+        /* Text Reveal Animation */
+        .reveal-text {
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .reveal-text span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-text.active span {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Image Reveal */
+        .img-reveal {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-reveal::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            transform: scaleX(1);
+            transform-origin: right;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-reveal.active::after {
+            transform: scaleX(0);
+        }
+
+        .img-reveal img {
+            transform: scale(1.2);
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .img-reveal.active img {
+            transform: scale(1);
+        }
+
+        /* Magnetic Button */
+        .magnetic-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .magnetic-btn::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            z-index: -1;
+        }
+
+        /* Line Animation */
+        .line-draw {
+            width: 0;
+            height: 1px;
+            background: #0a0a0a;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .line-draw.active {
+            width: 100%;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Parallax Container */
+        .parallax-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: translateX(-101%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::after {
+            transform: translateX(0);
+        }
+
+        /* Service Card Hover */
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .arrow {
+            transform: translateX(10px);
+        }
+
+        /* Video Play Button */
+        .play-btn {
+            transition: transform 0.3s ease;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Input Animation */
+        .input-animated {
+            position: relative;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #0a0a0a;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-animated:focus {
+            border-bottom-color: #0a0a0a;
+        }
+
+        .input-animated::placeholder {
+            color: #666;
+            transition: opacity 0.3s ease;
+        }
+
+        .input-animated:focus::placeholder {
+            opacity: 0;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Project List Item */
+        .project-item {
+            transition: all 0.4s ease;
+            opacity: 0.4;
+        }
+
+        .project-item:hover {
+            opacity: 1;
+            padding-left: 20px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            clip-path: circle(0% at calc(100% - 40px) 40px);
+            transition: clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-menu.active {
+            clip-path: circle(150% at calc(100% - 40px) 40px);
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .loader.hidden {
+            transform: translateY(-100%);
+        }
+
+        .loader-text {
+            color: white;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            overflow: hidden;
+        }
+
+        .loader-text span {
+            display: inline-block;
+            animation: loaderReveal 1s ease forwards;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        @keyframes loaderReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-text font-display">
+            <span style="animation-delay: 0.1s">G</span>
+            <span style="animation-delay: 0.2s">E</span>
+            <span style="animation-delay: 0.3s">S</span>
+            <span style="animation-delay: 0.4s">S</span>
+            <span style="animation-delay: 0.5s">O</span>
+            <span style="animation-delay: 0.6s">F</span>
+            <span style="animation-delay: 0.7s">E</span>
+            <span style="animation-delay: 0.8s">I</span>
+            <span style="animation-delay: 0.9s">T</span>
+            <span style="animation-delay: 1.0s">O</span>
+        </div>
+    </div>
+
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 mix-blend-difference text-white" id="navbar">
+        <div class="flex justify-between items-center max-w-[1800px] mx-auto">
+            <a href="#" class="font-display text-xl font-bold tracking-tighter magnetic-btn" data-magnetic>
+                <span class="text-2xl">◼</span> Gesso Feito
+            </a>
+            
+            <div class="hidden md:flex gap-12 text-sm font-medium tracking-wide">
+                <a href="#home" class="nav-link magnetic-btn" data-magnetic>Início</a>
+                <a href="#servicos" class="nav-link magnetic-btn" data-magnetic>Serviços</a>
+                <a href="#projetos" class="nav-link magnetic-btn" data-magnetic>Projetos</a>
+                <a href="#contato" class="nav-link magnetic-btn" data-magnetic>Contato</a>
+            </div>
+
+            <a href="#contato" class="hidden md:flex items-center gap-2 text-sm font-medium magnetic-btn" data-magnetic>
+                Solicitar Orçamento <span class="text-lg">→</span>
+            </a>
+
+            <button class="md:hidden text-2xl magnetic-btn" id="menu-toggle" data-magnetic>☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 bg-black z-40 flex items-center justify-center" id="mobile-menu">
+        <div class="flex flex-col gap-8 text-center">
+            <a href="#home" class="text-white text-4xl font-display font-bold mobile-link">Início</a>
+            <a href="#servicos" class="text-white text-4xl font-display font-bold mobile-link">Serviços</a>
+            <a href="#projetos" class="text-white text-4xl font-display font-bold mobile-link">Projetos</a>
+            <a href="#contato" class="text-white text-4xl font-display font-bold mobile-link">Contato</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="smooth-scroll" id="smooth-content">
+
+        <!-- Section 1: Hero -->
+        <section id="home" class="min-h-screen w-full relative flex items-center pt-20 px-6 lg:px-12">
+            <div class="max-w-[1800px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="space-y-8 z-10">
+                    <div class="space-y-2">
+                        <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight">
+                            <div class="reveal-text"><span>TRANSFORMANDO</span></div>
+                            <div class="reveal-text"><span>ESPAÇOS</span></div>
+                        </h1>
+                    </div>
+                    
+                    <p class="text-lg md:text-xl text-gray-600 max-w-md leading-relaxed reveal-text">
+                        <span>Somos especialistas em forros e divisórias de drywall. 
+                        Tecnologia, precisão e design para criar ambientes que inspiram.</span>
+                    </p>
+
+                    <div class="flex items-center gap-8 pt-4">
+                        <a href="#projetos" class="magnetic-btn group inline-flex items-center gap-3 text-sm font-semibold border border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition-colors duration-300" data-magnetic>
+                            Ver Projetos
+                            <span class="arrow transition-transform group-hover:translate-x-1">→</span>
+                        </a>
+                        <a href="#servicos" class="magnetic-btn text-sm font-medium underline underline-offset-4" data-magnetic>
+                            Nossos Serviços
+                        </a>
+                    </div>
+
+                    <div class="line-draw w-32 mt-12"></div>
+                    
+                    <p class="text-xs text-gray-400 uppercase tracking-widest pt-4">
+                        15 anos de experiência • 500+ projetos entregues
+                    </p>
+                </div>
+
+                <!-- Right Content -->
+                <div class="relative h-[60vh] lg:h-[80vh]">
+                    <div class="img-reveal w-full h-full absolute top-0 right-0 lg:w-[90%]">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600" 
+                             alt="Escritório moderno com forro de drywall" 
+                             class="w-full h-full object-cover grayscale">
+                    </div>
+                    
+                    <!-- Floating Stats -->
+                    <div class="absolute -left-4 lg:-left-20 bottom-20 bg-white p-6 shadow-2xl floating z-20">
+                        <p class="font-display text-4xl font-bold">500+</p>
+                        <p class="text-xs uppercase tracking-wider text-gray-500 mt-1">Projetos Realizados</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 right-8 hidden lg:block scroll-indicator">
+                <p class="text-xs uppercase tracking-widest rotate-90 origin-right">Scroll para explorar</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Video/Process -->
+        <section class="w-full py-32 px-6 lg:px-12 bg-black text-white relative overflow-hidden">
+            <div class="max-w-[1800px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div class="order-2 lg:order-1">
+                        <p class="text-xs uppercase tracking-[0.3em] mb-6 text-gray-400 reveal-text">
+                            <span>Assista ao vídeo do nosso processo</span>
+                        </p>
+                        
+                        <div class="img-reveal aspect-video relative cursor-pointer group" id="video-trigger">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1600" 
+                                 alt="Processo de instalação drywall" 
+                                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                            
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="play-btn w-24 h-24 border-2 border-white rounded-full flex items-center justify-center magnetic-btn" data-magnetic>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-1 lg:order-2 space-y-8">
+                        <h2 class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                            <div class="reveal-text"><span>COM</span></div>
+                            <div class="reveal-text"><span>PRECISÃO</span></div>
+                            <div class="reveal-text"><span>E TECNOLOGIA</span></div>
+                        </h2>
+                        
+                        <p class="text-gray-400 text-lg leading-relaxed max-w-lg reveal-text">
+                            <span>Utilizamos materiais de alta qualidade e técnicas avançadas de instalação. 
+                            Cada projeto é executado com rigor técnico, respeitando prazos e 
+                            superando expectativas.</span>
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-8 pt-8">
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <p class="font-display text-3xl font-bold">98%</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Clientes Satisfeitos</p>
+                                </span>
+                            </div>
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <p class="font-display text-3xl font-bold">48h</p>
+                                    <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">Orçamento Express</p>
+                                </span>
+                            </div>
+                        </div>
+
+                        <a href="#contato" class="magnetic-btn inline-flex items-center gap-3 mt-8 border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors duration-300" data-magnetic>
+                            Iniciar Projeto <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Services -->
+        <section id="servicos" class="w-full py-32 px-6 lg:px-12">
+            <div class="max-w-[1800px] mx-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-start mb-20 gap-8">
+                    <div>
+                        <p class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500 reveal-text">
+                            <span>O que fazemos</span>
+                        </p>
+                        <h2 class="font-display text-5xl md:text-7xl font-bold reveal-text">
+                            <span>Nossos Serviços</span>
+                        </h2>
+                    </div>
+                    <p class="text-gray-600 max-w-md lg:text-right reveal-text">
+                        <span>Do projeto à execução, cuidamos de cada detalhe para entregar 
+                        ambientes funcionais e esteticamente impecáveis.</span>
+                    </p>
+                </div>
+
+                <div class="line-draw mb-16"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card group border-t border-black pt-8 cursor-pointer" data-magnetic>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-display text-5xl font-light text-gray-300 group-hover:text-black transition-colors">01</span>
+                            <span class="arrow text-2xl">→</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4">Forros de Drywall</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Instalação de forros em gesso acartonado com isolamento acústico e térmico. 
+                            Acabamento perfeito para residências e comércios.
+                        </p>
+                        <div class="img-reveal h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Forro de drywall" 
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card group border-t border-black pt-8 cursor-pointer" data-magnetic>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-display text-5xl font-light text-gray-300 group-hover:text-black transition-colors">02</span>
+                            <span class="arrow text-2xl">→</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4">Divisórias</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Divisórias removíveis e fixas que otimizam espaços. 
+                            Soluções corporativas com acabamento premium e instalação limpa.
+                        </p>
+                        <div class="img-reveal h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Divisórias de drywall" 
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card group border-t border-black pt-8 cursor-pointer" data-magnetic>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-display text-5xl font-light text-gray-300 group-hover:text-black transition-colors">03</span>
+                            <span class="arrow text-2xl">→</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold mb-4">Rebaixamentos</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Design de sancas, rebaixamentos e iluminação embutida. 
+                            Crie ambientes sofisticados com soluções personalizadas.
+                        </p>
+                        <div class="img-reveal h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Rebaixamento de teto" 
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Projects -->
+        <section id="projetos" class="w-full py-32 px-6 lg:px-12 bg-gray-50">
+            <div class="max-w-[1800px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- Left: Title -->
+                    <div class="lg:sticky lg:top-32 lg:self-start space-y-8">
+                        <h2 class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                            <div class="reveal-text"><span>VAMOS</span></div>
+                            <div class="reveal-text"><span>CONSTRUIR</span></div>
+                            <div class="reveal-text"><span>SEU PROJETO</span></div>
+                            <div class="reveal-text"><span>JUNTOS</span></div>
+                        </h2>
+                        
+                        <p class="text-gray-600 max-w-md reveal-text">
+                            <span>Embarque em uma jornada de transformação onde sua visão 
+                            ganha forma através da qualidade e inovação em drywall.</span>
+                        </p>
+
+                        <div class="pt-8">
+                            <form class="flex items-end gap-4 max-w-md" id="contact-form-mini">
+                                <div class="flex-1">
+                                    <label class="text-xs uppercase tracking-wider text-gray-500 block mb-2">Seu email para contato</label>
+                                    <input type="email" placeholder="exemplo@email.com" 
+                                           class="input-animated w-full py-2 text-lg bg-transparent" required>
+                                </div>
+                                <button type="submit" class="magnetic-btn text-sm font-semibold border-b-2 border-black pb-2 hover:text-gray-600 transition-colors" data-magnetic>
+                                    Enviar →
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="pt-12">
+                            <p class="text-xs text-gray-400 uppercase tracking-widest mb-4">Certificações</p>
+                            <div class="flex gap-8 text-sm font-medium">
+                                <span>ISO 9001</span>
+                                <span>PGQP</span>
+                                <span>CBIC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Project List -->
+                    <div class="space-y-0">
+                        <p class="text-xs uppercase tracking-[0.3em] mb-8 text-gray-500">Nossos Melhores Projetos</p>
+                        
+                        <div class="border-t border-black">
+                            <a href="#" class="project-item block py-8 border-b border-gray-300 group" data-magnetic>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-display text-2xl md:text-3xl font-bold mb-2 group-hover:translate-x-4 transition-transform">
+                                            ◆ EDIFÍCIO CORPORATIVO ALPHA
+                                        </h3>
+                                        <p class="text-sm text-gray-500">Forro acústico • 2.000m² • São Paulo</p>
+                                    </div>
+                                    <span class="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                </div>
+                            </a>
+
+                            <a href="#" class="project-item block py-8 border-b border-gray-300 group" data-magnetic>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-display text-2xl md:text-3xl font-bold mb-2 group-hover:translate-x-4 transition-transform">
+                                            ◆ CENTRO COMERCIAL METRÓPOLE
+                                        </h3>
+                                        <p class="text-sm text-gray-500">Divisórias • 1.500m² • Rio de Janeiro</p>
+                                    </div>
+                                    <span class="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                </div>
+                            </a>
+
+                            <a href="#" class="project-item block py-8 border-b border-gray-300 group" data-magnetic>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-display text-2xl md:text-3xl font-bold mb-2 group-hover:translate-x-4 transition-transform">
+                                            ◆ RESIDÊNCIA HORIZONTE
+                                        </h3>
+                                        <p class="text-sm text-gray-500">Rebaixamento e iluminação • 400m² • Curitiba</p>
+                                    </div>
+                                    <span class="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                </div>
+                            </a>
+
+                            <a href="#" class="project-item block py-8 border-b border-gray-300 group" data-magnetic>
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <h3 class="font-display text-2xl md:text-3xl font-bold mb-2 group-hover:translate-x-4 transition-transform">
+                                            ◆ COMPLEXO INDUSTRIAL TECNO
+                                        </h3>
+                                        <p class="text-sm text-gray-500">Forro antisséptico • 5.000m² • Campinas</p>
+                                    </div>
+                                    <span class="text-2xl opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Featured Image -->
+                        <div class="mt-16 img-reveal aspect-[4/3]">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=1200" 
+                                 alt="Projeto destacado" 
+                                 class="w-full h-full object-cover grayscale">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact -->
+        <section id="contato" class="w-full py-32 px-6 lg:px-12">
+            <div class="max-w-[1800px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <div class="space-y-8">
+                        <p class="text-xs uppercase tracking-[0.3em] text-gray-500 reveal-text">
+                            <span>Entre em contato</span>
+                        </p>
+                        <h2 class="font-display text-5xl md:text-7xl font-bold reveal-text">
+                            <span>VAMOS CONVERSAR</span>
+                        </h2>
+                        
+                        <div class="space-y-6 pt-8">
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Email</p>
+                                    <a href="mailto:contato@drywallpro.com.br" class="text-xl hover:text-gray-600 transition-colors">contato@drywallpro.com.br</a>
+                                </span>
+                            </div>
+                            <br>
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Telefone</p>
+                                    <a href="tel:+5511999999999" class="text-xl hover:text-gray-600 transition-colors">+55 (11) 99999-9999</a>
+                                </span>
+                            </div>
+                            <br>
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <p class="text-xs uppercase tracking-wider text-gray-500 mb-1">Endereço</p>
+                                    <p class="text-xl">Gravatá, PE</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 md:p-12">
+                        <form id="contact-form" class="space-y-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="reveal-text">
+                                    <span class="block">
+                                        <label class="text-xs uppercase tracking-wider text-gray-500 block mb-3">Nome</label>
+                                        <input type="text" class="input-animated w-full py-3 bg-transparent" placeholder="Seu nome" required>
+                                    </span>
+                                </div>
+                                <div class="reveal-text">
+                                    <span class="block">
+                                        <label class="text-xs uppercase tracking-wider text-gray-500 block mb-3">Email</label>
+                                        <input type="email" class="input-animated w-full py-3 bg-transparent" placeholder="seu@email.com" required>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <label class="text-xs uppercase tracking-wider text-gray-500 block mb-3">Tipo de Projeto</label>
+                                    <select class="input-animated w-full py-3 bg-transparent cursor-pointer">
+                                        <option>Forro de Drywall</option>
+                                        <option>Divisórias</option>
+                                        <option>Rebaixamento</option>
+                                        <option>Projeto Completo</option>
+                                    </select>
+                                </span>
+                            </div>
+
+                            <div class="reveal-text">
+                                <span class="block">
+                                    <label class="text-xs uppercase tracking-wider text-gray-500 block mb-3">Mensagem</label>
+                                    <textarea class="input-animated w-full py-3 bg-transparent resize-none" rows="4" placeholder="Conte-nos sobre seu projeto..." required></textarea>
+                                </span>
+                            </div>
+
+                            <button type="submit" class="magnetic-btn w-full bg-black text-white py-4 text-sm font-semibold uppercase tracking-wider hover:bg-gray-800 transition-colors flex items-center justify-center gap-2 group" data-magnetic>
+                                Enviar Mensagem
+                                <span class="group-hover:translate-x-1 transition-transform">→</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full py-12 px-6 lg:px-12 border-t border-gray-200">
+            <div class="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">◼</span>
+                    <span class="font-display font-bold text-xl">Gesso Feito</span>
+                </div>
+                
+                <p class="text-sm text-gray-500">© 2026 Gesso Feito. Todos os direitos reservados.</p>
+                
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>Instagram</a>
+                    <a href="#" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>LinkedIn</a>
+                    <a href="#" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>WhatsApp</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Hide loader
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                initAnimations();
+            }, 2000);
+
+            initCursor();
+            initMagneticButtons();
+            initSmoothScroll();
+            initNavigation();
+            initParallax();
+            initFormHandling();
+        });
+
+        // Custom Cursor
+        function initCursor() {
+            const cursor = document.getElementById('cursor');
+            const cursorDot = document.getElementById('cursor-dot');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+
+            // Check if touch device
+            if (window.matchMedia('(pointer: coarse)').matches) {
+                cursor.style.display = 'none';
+                cursorDot.style.display = 'none';
+                document.body.style.cursor = 'auto';
+                return;
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.left = mouseX + 'px';
+                cursorDot.style.top = mouseY + 'px';
+            });
+
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.1;
+                cursorY += (mouseY - cursorY) * 0.1;
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover effects
+            const interactiveElements = document.querySelectorAll('a, button, .service-card, input, select, textarea');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+        }
+
+        // Magnetic Buttons
+        function initMagneticButtons() {
+            const buttons = document.querySelectorAll('[data-magnetic]');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+        // Scroll Animations using Intersection Observer
+        function initAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Stagger children if it's a reveal-text container
+                        if (entry.target.classList.contains('reveal-text')) {
+                            const spans = entry.target.querySelectorAll('span');
+                            spans.forEach((span, index) => {
+                                span.style.transitionDelay = `${index * 0.1}s`;
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.reveal-text, .img-reveal, .line-draw').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth Scroll Behavior
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Navigation
+        function initNavigation() {
+            const navbar = document.getElementById('navbar');
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let lastScroll = 0;
+
+            // Scroll behavior for navbar
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 100) {
+                    navbar.classList.add('bg-black', 'text-white');
+                    navbar.classList.remove('mix-blend-difference');
+                } else {
+                    navbar.classList.remove('bg-black', 'text-white');
+                    navbar.classList.add('mix-blend-difference');
+                }
+                
+                lastScroll = currentScroll;
+            });
+
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                menuToggle.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.textContent = '☰';
+                });
+            });
+        }
+
+        // Parallax Effect
+        function initParallax() {
+            const parallaxElements = document.querySelectorAll('.img-reveal img, .floating');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                
+                parallaxElements.forEach((el, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    const yPos = -(scrolled * speed);
+                    el.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        }
+
+        // Form Handling
+        function initFormHandling() {
+            const forms = document.querySelectorAll('form');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Create success message
+                    const btn = form.querySelector('button[type="submit"]');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = 'Enviado com sucesso! ✓';
+                    btn.style.background = '#10b981';
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        form.reset();
+                    }, 3000);
+                });
+            });
+        }
+
+        // Video Modal (simulated)
+        document.getElementById('video-trigger').addEventListener('click', () => {
+            alert('Vídeo do processo de instalação seria reproduzido aqui.');
+        });
+
+        // Project items interaction
+        document.querySelectorAll('.project-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                document.querySelectorAll('.project-item').forEach(other => {
+                    if (other !== item) other.style.opacity = '0.2';
+                });
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                document.querySelectorAll('.project-item').forEach(other => {
+                    other.style.opacity = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
