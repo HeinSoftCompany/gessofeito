@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesso Feito | Aplicações em Forros</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles.css">
+    
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-text font-display">
+            <span style="animation-delay: 0.1s">G</span>
+            <span style="animation-delay: 0.2s">E</span>
+            <span style="animation-delay: 0.3s">S</span>
+            <span style="animation-delay: 0.4s">S</span>
+            <span style="animation-delay: 0.5s">O</span>
+            <span style="animation-delay: 0.6s">F</span>
+            <span style="animation-delay: 0.7s">E</span>
+            <span style="animation-delay: 0.8s">I</span>
+            <span style="animation-delay: 0.9s">T</span>
+            <span style="animation-delay: 1.0s">O</span>
+        </div>
+    </div>
+
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 text-black bg-white/80 backdrop-blur-md" id="navbar">
+        <div class="flex justify-between items-center max-w-[1800px] mx-auto">
+            <a href="#" class="font-display text-xl font-bold tracking-tighter magnetic-btn" data-magnetic>
+                <span class="text-2xl">◼</span> Gesso Feito
+            </a>
+            
+            <div class="hidden md:flex gap-12 text-sm font-medium tracking-wide">
+                <a href="/index.html" class="nav-link magnetic-btn" data-magnetic>Início</a>
+                <a href="/index.html#servicos" class="nav-link magnetic-btn" data-magnetic>Serviços</a>
+                <a href="/projetos.html" class="nav-link magnetic-btn" data-magnetic>Projetos</a>
+                <a href="/index.html#contato" class="nav-link magnetic-btn" data-magnetic>Contato</a>
+            </div>
+            
+
+            <a href="https://api.whatsapp.com/send?phone=5581998041181&text=Ol%C3%A1%2C%20quero%20fazer%20meu%20or%C3%A7amento%20personalizado%20%F0%9F%99%82" target="_blank" class="hidden md:flex items-center gap-2 text-sm font-medium magnetic-btn" data-magnetic>
+                Solicitar Orçamento <span class="text-lg">→</span>
+            </a>
+
+            <button class="md:hidden text-2xl magnetic-btn" id="menu-toggle" data-magnetic>☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="flex flex-col gap-8 text-center">
+    <a href="/index.html" class="text-white text-4xl font-display font-bold mobile-link">Início</a>
+    <a href="/index.html#servicos" class="text-white text-4xl font-display font-bold mobile-link">Serviços</a>
+    <a href="/projetos.html" class="text-white text-4xl font-display font-bold mobile-link">Projetos</a>
+    <a href="/index.html#contato" class="text-white text-4xl font-display font-bold mobile-link">Contato</a>
+</div>
+
+    <!-- Main Content -->
+    <main class="smooth-scroll" id="smooth-content">
+
+    <section id="projetos" class="w-full pt-40 pb-32 px-6 lg:px-12 bg-gray-50">
+        <div class="max-w-[1800px] mx-auto">
+
+            <div class="mb-16">
+                <p class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-4">
+                    Galeria de Projetos
+                </p>
+
+                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight">
+                    Aplicações em Forros
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+                <a href="#" class="group block md:col-span-7">
+                    <div class="overflow-hidden h-[620px]">
+                        <img
+                            src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=1400"
+                            alt="Projeto de forro em drywall"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        >
+                    </div>
+                </a>
+
+                <div class="md:col-span-5 flex flex-col gap-6">
+                    <a href="#" class="group block">
+                        <div class="overflow-hidden h-[300px]">
+                            <img
+                                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&q=80&w=1200"
+                                alt="Projeto residencial com acabamento em gesso"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                            >
+                        </div>
+                    </a>
+
+                    <a href="#" class="group block">
+                        <div class="overflow-hidden h-[300px]">
+                            <img
+                                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200"
+                                alt="Sala com rebaixamento em gesso"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                            >
+                        </div>
+                    </a>
+                </div>
+
+                <a href="#" class="group block md:col-span-4">
+                    <div class="overflow-hidden h-[280px]">
+                        <img
+                            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1200"
+                            alt="Ambiente interno com drywall"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        >
+                    </div>
+                </a>
+
+                <a href="#" class="group block md:col-span-4">
+                    <div class="overflow-hidden h-[280px]">
+                        <img
+                            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=1200"
+                            alt="Cozinha moderna com acabamento em gesso"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        >
+                    </div>
+                </a>
+
+                <a href="#" class="group block md:col-span-4">
+                    <div class="overflow-hidden h-[280px]">
+                        <img
+                            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=1200"
+                            alt="Espaço gourmet com forro de drywall"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        >
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full py-12 px-6 lg:px-12 border-t border-gray-200">
+        <div class="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">◼</span>
+                <span class="font-display font-bold text-xl">Gesso Feito</span>
+            </div>
+
+            <p class="text-sm text-gray-500">© 2026 Gesso Feito. Todos os direitos reservados.</p>
+
+            <div class="flex gap-6 text-sm">
+                <a href="#" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>Instagram</a>
+                <a href="#" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>LinkedIn</a>
+                <a href="https://api.whatsapp.com/send?phone=5581998041181" target="_blank" class="hover:text-gray-600 transition-colors magnetic-btn" data-magnetic>WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+</main>
+    <script src="/assets/main.js"></script>
+</body>
+</html>
